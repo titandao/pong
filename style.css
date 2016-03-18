@@ -23,10 +23,10 @@ body {
 
 #ball {
 	position: absolute;
-	background-color: white;
-	width: 36px;
-	height: 36px;
-	border-radius: 36px; 
+	/*background-color: white;*/
+	width: 48px;
+	height: 48px;
+	/*border-radius: 36px; */
 }
 
 

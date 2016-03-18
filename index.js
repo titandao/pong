@@ -87,8 +87,8 @@ $(function() {
 	// caps
 	
 	// top/bottom are for rackets
-	var cap_top = 0.1 * playing_field_h + playing_field.position().top;
-	var cap_bottom = 0.9 * playing_field_h - racket_h + playing_field.position().top;
+	var cap_top = 0.05 * playing_field_h + playing_field.position().top;
+	var cap_bottom = 0.95 * playing_field_h - racket_h + playing_field.position().top;
 	
 	// these are for the ball
 	var cap_left = racket1.position().left + racket_w;
@@ -113,6 +113,62 @@ $(function() {
 		racket1.css("top", Math.min(cap_bottom , Math.max(cap_top, mousey)) );
 		// console.log(event.pageY);
 	});
+
+
+	// $("body").on("keydown", function(e){
+	// 	var thisIndex = $(".selected").index();
+	// 	var newIndex = null;
+
+
+	// 	// up
+	// 	if(e.keyCode === 38) {
+	// 		racket1.animate({top: "-=10"}, 0);
+	// 	}
+	// 	// down
+	// 	else if(e.keyCode === 40) {
+	// 		racket1.animate({top: "+=10"}, 0);
+	// 	}
+	// });
+
+var tickRate = 30,
+    keyArrowUp    = false,
+    keyArrowDown  = false;
+
+$('body').keydown(function(e){
+  switch (e.which) {
+    case 38:
+      keyArrowUp = true;
+      break;
+    case 40:
+      keyArrowDown = true;
+      break;
+  }
+});
+$('body').keyup(function(e){
+  switch (e.which) {
+    case 38:
+      keyArrowUp = false;
+      break;
+    case 40:
+      keyArrowDown = false;
+      break;
+  }
+});
+
+var tick = function() {
+	var top = racket1.position().top;
+
+
+  if (keyArrowUp && top > cap_top) {
+    // up code
+    racket1.css("top", top - 8);
+  } else if (keyArrowDown && top < cap_bottom) {
+    // down code
+    racket1.css("top", top + 8);
+  }
+  setTimeout(tick, tickRate);
+};
+tick();
 
 
 
