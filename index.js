@@ -18,6 +18,8 @@ $.fn.fully_center = function() {
 	Websockets
 */
 
+// thanks to 
+// http://www.ahoj.io/nodejs-and-websocket-simple-chat-tutorial
 
 function socketStuff() {
     // if user is running mozilla then use it's built-in WebSocket
