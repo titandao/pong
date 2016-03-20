@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/titandao/pong",
   "dependencies": {
+    "bower": "^1.7.7",
+    "bower-requirejs": "^1.2.0",
     "websocket": "^1.0.22"
   }
 }
